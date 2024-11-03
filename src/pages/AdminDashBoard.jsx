@@ -36,10 +36,10 @@ const AdminDashBoard = () => {
         </div >
         <div className="w-full bg-zinc-700 p-5 rounded">
             <h2>Assign Task</h2>
-            <form className="mt-3 flex justify-around " action="" onSubmit={(e)=>{
+            <form className="mt-3 flex justify-around flex-wrap " action="" onSubmit={(e)=>{
                     e.preventDefault();
                     updateEmployeeData({...taskData,id: new Date().getTime()})
-                    console.log(taskData);
+                    // console.log(taskData);
                     setTaskData({
                         task_title :'',
                         assign_to :'',
@@ -79,22 +79,20 @@ const AdminDashBoard = () => {
             <h1>All Tasks</h1>
             <div className="flex flex-col py-2 h-44">
             <div className="flex gap-3 ">
-                    <h2 className="w-[300px] text-center font-bold">Task Title</h2>
-                    <h2 className="w-[300px] text-center font-bold">Assigned To</h2>
-                    <h2 className="w-[300px] text-center font-bold">Due Date</h2>
-                    <h2 className="w-[300px] text-center font-bold">Status</h2>
+                    <h2 className="w-[300px] text-center font-bold text-[9px] md:text-base ">Task Title</h2>
+                    <h2 className="w-[300px] text-center font-bold text-[9px] md:text-base ">Assigned To</h2>
+                    <h2 className="w-[300px] text-center font-bold text-[9px] md:text-base ">Due Date</h2>
+                    <h2 className="w-[300px] text-center font-bold text-[9px] md:text-base ">Status</h2>
 
                 </div>
                 <div className=" overflow-y-scroll">
-                    {employeeData.filter((item) => item.tasks.length !== 0).map((element) => element.tasks.map((el,index) => (<div key={index+1} className="flex gap-3 bg-green-400 rounded py-2 my-2">
-                    <h2 className="w-[300px] text-center">{el.task_title}</h2>
-                    <h2 className="w-[300px] text-center">{el.assign_to}</h2>
-                    <h2 className="w-[300px] text-center">{el.due_date}</h2>
-                    <h2 className="w-[300px] text-center">{el.status}</h2>
-
-                </div>)))}
-                   
-               
+                    {employeeData.filter((item) => item.tasks.length !== 0).map((element) => element.tasks.map((el) => (<div key={el.id} className={`flex gap-3  rounded py-2 my-2 ${el.status === 'completed' ? 'bg-green-400' :  el.status === 'not accepted yet' ? 'bg-yellow-400' :  el.status === 'failed' ? 'bg-red-400' : 'bg-blue-400' // default or other status
+  } `}>
+                    <h2 className="w-[300px] text-center text-[9px] md:text-base">{el.task_title}</h2>
+                    <h2 className="w-[300px] text-center text-[9px] md:text-base">{el.assign_to}</h2>
+                    <h2 className="w-[300px] text-center text-[9px] md:text-base">{el.due_date}</h2>
+                    <h2 className="w-[300px] text-center text-[9px] md:text-base">{el.status}</h2>
+                </div>)))}    
                 </div>
             </div>
         </div>
