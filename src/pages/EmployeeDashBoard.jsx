@@ -47,10 +47,10 @@ const EmployeeDashBoard = () => {
             </div>
 
         </div>
-            <div className="p-5 mt-10 max-h-[calc(100vh-400px)] bg-zinc-700 rounded  md:h-auto">
+            <div className="p-5 mt-10  max-h-[calc(100vh-400px)] bg-zinc-700 rounded md:max-h-[calc(100vh-200px)] overflow-y-auto ">
                 <h1 className="text-center pb-3">All Tasks </h1>
-        <div className="w-full max-h-[50vh] rounded flex flex-wrap md:flex-nowrap gap-4 overflow-y-scroll md:overflow-x-scroll ">
-        {requireData.tasks?.filter((item) => item.status === "completed")?.map((task)=><div key={task.id} className="min-w-[270px] md:min-w-[300px] max-w-[300px] h-min-[190px] bg-green-400 rounded flex flex-col justify-between py-3 px-5">
+        <div className="w-full rounded flex flex-wrap  md:flex-nowrap gap-4 ">
+        {requireData.tasks?.filter((item) => item.status === "completed")?.map((task)=><div key={task.id} className="min-w-full md:min-w-[300px] max-w-[300px] h-min-[190px] bg-green-400 rounded flex flex-col justify-between py-3 px-5">
                 <div className="">
                 <div className="flex justify-between items-center">
                 <h1 className="text-2xl">{task.task_title}</h1>
@@ -64,7 +64,7 @@ const EmployeeDashBoard = () => {
 
             </div>)}            
             
-        {requireData.tasks?.filter((item) => item.status === "failed")?.map((task)=><div key={task.id} className="min-w-[270px] md:min-w-[300px] max-w-[300px] h-min-[190px] h-auto bg-red-400 rounded flex flex-col justify-between py-3 px-5">
+        {requireData.tasks?.filter((item) => item.status === "failed")?.map((task)=><div key={task.id} className="min-w-full md:min-w-[300px] max-w-[300px] h-min-[190px] bg-red-400 rounded flex flex-col justify-between py-3 px-5">
                 <div className="">
                 <div className="flex justify-between items-center">
                 <h1 className="text-2xl">{task.task_title}</h1>
@@ -79,13 +79,13 @@ const EmployeeDashBoard = () => {
 
          </div>)}
             
-        {requireData.tasks?.filter((item) => item.status === "not accepted yet")?.map((task)=> <div key={task.id} className="min-w-[270px] md:min-w-[300px] max-w-[300px] h-min-[190px] bg-yellow-400 rounded flex flex-col justify-between py-3 px-5">
+        {requireData.tasks?.filter((item) => item.status === "not accepted yet")?.map((task)=> <div key={task.id} className="min-w-full md:min-w-[300px] max-w-[300px] h-min-[190px] max-h-[100vh] bg-yellow-400 rounded flex flex-col justify-between py-3 px-5">
                 <div className="">
                     <div className="flex justify-between items-center">
                         <h1 className="text-2xl">{task.task_title}</h1>
                         <h1 className="text-sm">{task.due_date}</h1>
                     </div>
-                    <p className=" text-justify">{task.task_description}</p>
+                    <p className=" w-full break-words text-justify">{task.task_description}</p>
                 </div>
                 <div className="flex justify-between mt-16">
                     <button className=" bg-blue-400 py-1 px-2 rounded" onClick={
@@ -108,7 +108,7 @@ const EmployeeDashBoard = () => {
             </div>
         )}
            
-        {requireData.tasks?.filter((item) => item.status === "accepted")?.map((task)=><div key={task.id} className="min-w-[270px] md:min-w-[300px] max-w-[300px] h-min-[190px] bg-blue-400 rounded flex flex-col justify-between py-3 px-5">
+        {requireData.tasks?.filter((item) => item.status === "accepted")?.map((task)=><div key={task.id} className="min-w-full md:min-w-[300px] max-w-[300px] h-min-[190px] bg-blue-400 rounded flex flex-col justify-between py-3 px-5">
                 <div className="">
                 <div className="flex justify-between items-center">
                      <h1 className="text-2xl">{task.task_title}</h1>
