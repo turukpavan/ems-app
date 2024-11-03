@@ -4,14 +4,7 @@ import { createContext, useState } from "react";
 
   // eslint-disable-next-line react/prop-types
   const EmployeeProvider=({children})=>{
-    const [employeeData,setEmployeeData]=useState([
-        {
-            username:'',
-            email:'',
-            password:'',
-            tasks:[]
-          }
-    ]);
+    const [employeeData,setEmployeeData]=useState([]);
     const addEmployeesData =(data)=>{
         setEmployeeData([...employeeData,data]);
     }
