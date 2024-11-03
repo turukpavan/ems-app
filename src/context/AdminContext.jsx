@@ -6,9 +6,9 @@ const AdminContext=createContext()
 const AdminProvider = ({children}) => {
     const [adminData,setAdminData]=useState([{
         id:1234,
-        username:'rahul',
-        email:'rahul@gmail.com',
-        password:'rahul123'
+        username:'admin',
+        email:'admin@gmail.com',
+        password:'admin@123'
     }]);
 
     const addAdminData=(data)=>{

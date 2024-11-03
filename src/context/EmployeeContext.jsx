@@ -6,9 +6,9 @@ import { createContext, useState } from "react";
   const EmployeeProvider=({children})=>{
     const [employeeData,setEmployeeData]=useState([
         {
-            username:'Pavan',
-            email:'turukpavan@gmail.com',
-            password:'123',
+            username:'',
+            email:'',
+            password:'',
             tasks:[]
           }
     ]);
